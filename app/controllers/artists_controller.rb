@@ -8,7 +8,12 @@ class ArtistsController < ApplicationController
   end
 
   def new
-    @artist = Artist.new
+    
+    if params[:allow_create_artist] == true  
+      @artist = Artist.new 
+    else  
+    redirect_to artists_path  
+    end 
   end
 
   def create
