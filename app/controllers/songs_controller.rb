@@ -28,6 +28,16 @@ class SongsController < ApplicationController
     @song = Song.new
   end
 
+
+  def new
+    if params[:allow_create_song] == true  
+      @song = Song.new 
+    else  
+    redirect_to songs_path  
+    end 
+  end
+
+
   def create
     @song = Song.new(song_params)
 
